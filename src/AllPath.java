@@ -1,5 +1,6 @@
 import MakeLeetCodeClass.TreeNode;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class AllPath {
@@ -23,6 +24,14 @@ public class AllPath {
             paths.add(""+root.val);
         }
         return paths;
+    }
+    public static void main(String[] args){
+        String str = "[2,7,6,3,8,null,5]";
+        TreeNode node = TreeNode.mkTree(str);
+        List<String> paths=binaryTreePaths(node);
+        for(int i = 0;i < paths.size();i++){
+            System.out.println(paths.get(i));
+        }
     }
 }
 
