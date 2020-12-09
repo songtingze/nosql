@@ -1,0 +1,96 @@
+{
+  "name": "actions",
+  "version": "1.0.0",
+  "actions": [
+    {
+    "name": "incr_num",
+    "describe": "user计数加1",
+    "retrieve_counterName": "show_num",
+    "save_counterName": "incr_num"
+    },
+    {
+      "name": "decr_num",
+      "describe": "user计数减1",
+      "retrieve_counterName": "show_num",
+      "save_counterName": "decr_num"
+    },
+    {
+      "name": "show_num",
+      "describe": "展示用户数",
+      "retrieve_counterName": "show_num",
+      "save_counterName": "show_num"
+    },
+    {
+      "name": "incrFreq",
+      "describe": "时间段用户数增加",
+      "retrieve_counterName": "showFreq",
+      "save_counterName": "incrFreq"
+    },
+    {
+      "name": "decrFreq",
+      "describe": "时间段用户数减少",
+      "retrieve_counterName": "showFreq",
+      "save_counterName": "decrFreq"
+    },
+    {
+      "name": "showFreq",
+      "describe": "展示时间段用户数变化",
+      "retrieve_counterName": "showFreq",
+      "save_counterName": "showFreq"
+    },
+    {
+      "name": "add_str",
+      "describe": "添加String类型",
+      "retrieve_counterName": "show_str",
+      "save_counterName": "add_str"
+    },
+    {
+      "name": "delete_str",
+      "describe": "删除String类型",
+      "retrieve_counterName": "show_str",
+      "save_counterName": "delete_str"
+    },
+    {
+      "name": "show_str",
+      "describe": "展示String类型",
+      "retrieve_counterName": "show_str",
+      "save_counterName": "show_str"
+    },
+    {
+      "name": "add_list",
+      "describe": "添加list类型",
+      "retrieve_counterName": "show_list",
+      "save_counterName": "add_list"
+    },
+    {
+      "name": "show_list",
+      "describe": "展示list类型",
+      "retrieve_counterName": "show_list",
+      "save_counterName": "show_list"
+    },
+    {
+      "name": "add_set",
+      "describe": "添加set类型",
+      "retrieve_counterName": "show_set",
+      "save_counterName": "add_set"
+    },
+    {
+      "name": "show_set",
+      "describe": "展示set类型",
+      "retrieve_counterName": "show_set",
+      "save_counterName": "show_set"
+    },
+    {
+      "name": "add_zSet",
+      "describe": "添加zSet类型",
+      "retrieve_counterName": "show_zSet",
+      "save_counterName": "add_zSet"
+    },
+    {
+      "name": "show_zSet",
+      "describe": "展示zSet类型",
+      "retrieve_counterName": "show_zSet",
+      "save_counterName": "show_zSet"
+    }
+  ]
+}
