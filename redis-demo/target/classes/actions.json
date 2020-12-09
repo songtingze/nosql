@@ -39,6 +39,24 @@
       "save_counterName": "showFreq"
     },
     {
+      "name": "showFreqIn",
+      "describe": "展示时间段增加的用户",
+      "retrieve_counterName": "showFreqIn",
+      "save_counterName": "showFreqIn"
+    },
+    {
+      "name": "showFreqOut",
+      "describe": "展示时间段减少的用户",
+      "retrieve_counterName": "showFreqOut",
+      "save_counterName": "showFreqOut"
+    },
+    {
+      "name": "showFreqInOut",
+      "describe": "展示时间段增加和减少的用户",
+      "retrieve_counterName": "showFreqInOut",
+      "save_counterName": "showFreqInOut"
+    },
+    {
       "name": "add_str",
       "describe": "添加String类型",
       "retrieve_counterName": "show_str",

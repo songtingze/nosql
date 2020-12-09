@@ -36,74 +36,98 @@
     {
       "counterName": "incrFreq",
       "counterIndex": "5",
-      "type": "freq",
+      "type": "hash",
       "keyFields": "Users",
       "fields": "2020.12.08.12.44",
-      "valueFields": "3"
+      "valueFields": "1"
     },
     {
       "counterName": "decrFreq",
       "counterIndex": "6",
-      "type": "freq",
+      "type": "hash",
       "keyFields": "Users",
       "fields": "2020.12.08.12.55",
       "valueFields": "-2"
     },
     {
-      "counterName": "add_str",
+      "counterName": "showFreqIn",
       "counterIndex": "7",
+      "type": "list",
+      "keyFields": "UsersIn",
+      "fields": "2020.12.08.12.00-2020.12.08.13.00",
+      "valueFields": "1"
+    },
+    {
+      "counterName": "showFreqOut",
+      "counterIndex": "8",
+      "type": "list",
+      "keyFields": "UsersOut",
+      "fields": "2020.12.08.12.00-2020.12.08.13.00",
+      "valueFields": "-1"
+    },
+    {
+      "counterName": "showFreqInOut",
+      "counterIndex": "9",
+      "type": "list",
+      "keyFields": "Users",
+      "fields": "2020.12.08.12.00-2020.12.08.13.00",
+      "valueFields": "0"
+    },
+    {
+      "counterName": "add_str",
+      "counterIndex": "10",
       "type": "str",
       "keyFields": "str",
       "valueFields": "nosql"
     },
     {
       "counterName": "delete_str",
-      "counterIndex": "8",
+      "counterIndex": "11",
       "type": "str",
       "keyFields": "str"
     },
     {
       "counterName": "show_str",
-      "counterIndex": "9",
+      "counterIndex": "12",
       "type": "str",
       "keyFields": "str"
     },
     {
       "counterName": "add_list",
-      "counterIndex": "10",
+      "counterIndex": "13",
       "type": "list",
       "keyFields": "testList",
       "valueFields": "nosql"
     },
     {
       "counterName": "show_list",
-      "counterIndex": "11",
+      "counterIndex": "14",
       "type": "list",
       "keyFields": "testList"
     },
     {
       "counterName": "add_set",
-      "counterIndex": "12",
+      "counterIndex": "15",
       "type": "set",
       "keyFields": "userSet",
       "valueFields": "nosql"
     },
     {
       "counterName": "show_set",
-      "counterIndex": "13",
+      "counterIndex": "16",
       "type": "set",
       "keyFields": "userSet"
     },
     {
       "counterName": "add_zSet",
-      "counterIndex": "14",
+      "counterIndex": "17",
       "type": "set",
       "keyFields": "user_zSet",
       "valueFields": "nosql"
     },
     {
       "counterName": "show_zSet",
-      "counterIndex": "15",
+      "counterIndex": "18",
       "type": "set",
       "keyFields": "user_zSet"
     }

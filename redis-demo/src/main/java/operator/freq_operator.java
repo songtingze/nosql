@@ -2,6 +2,8 @@ package operator;
 
 import redis.clients.jedis.Jedis;
 
+import java.util.List;
+
 public class freq_operator {  //实现对hash类型的操作
     private CounterSpec counterSpec;
     private Jedis jedis;
@@ -19,6 +21,11 @@ public class freq_operator {  //实现对hash类型的操作
         if(!jedis.hexists(counterSpec.getKeyFields(),"user")){
             jedis.hset(counterSpec.getKeyFields(),"user","0");
         }
+    }
+    public void setData1(CounterSpec counterSpec,Jedis jedis,String freq_time){
+        this.counterSpec = counterSpec;
+        this.jedis = jedis;
+        this.freq_time = freq_time;
     }
 
     public String getType(){
@@ -176,9 +183,68 @@ public class freq_operator {  //实现对hash类型的操作
         String result = " ";
         if(!counterSpec.getValueFields().equalsIgnoreCase("0")){
             result = type_operator(getType());
+            if(counterSpec.getValueFields().equalsIgnoreCase("1")){
+                String key = counterSpec.getKeyFields() + "In";
+                jedis.rpush(key,counterSpec.getFields());
+            }
+            else{
+                String key = counterSpec.getKeyFields() + "Out";
+                jedis.rpush(key,counterSpec.getFields());
+            }
         }
         else {
             result = show_freq(getType());
+        }
+        return result;
+    }
+    public String showIn(){
+        String result = " ";
+        String key = counterSpec.getKeyFields();
+        if(jedis.exists(key)){
+            List<String> mylist = jedis.lrange(key, 0, -1);
+            result = freq_time + "期间上线用户为:\n";
+            for(int i = 0 ;i < mylist.size();i++){
+                result += mylist.get(i) + "\n";
+            }
+        }
+        else{
+            result = "还没有上线用户";
+        }
+        return result;
+    }
+    public String showOut(){
+        String result = " ";
+        String key = counterSpec.getKeyFields();
+        if(jedis.exists(key)){
+            List<String> mylist = jedis.lrange(key, 0, -1);
+            result = freq_time + "期间下线用户为:\n";
+            for(int i = 0 ;i < mylist.size();i++){
+                result += mylist.get(i) + "\n";
+            }
+        }
+        else{
+            result = "还没有下线用户";
+        }
+        return result;
+    }
+    public String showInOut(){
+        String result = " ";
+        String key = counterSpec.getKeyFields() + "In";
+        String key1 = counterSpec.getKeyFields() + "Out";
+        if(jedis.exists(key)){
+            List<String> mylist = jedis.lrange(key, 0, -1);
+            result = freq_time + "期间上线用户为:\n";
+            for(int i = 0 ;i < mylist.size();i++){
+                result += mylist.get(i) + "\n";
+            }
+            List<String> mylist1 = jedis.lrange(key1, 0, -1);
+            result += freq_time + "期间下线用户为:\n";
+            for(int i = 0 ;i < mylist1.size();i++){
+                result += mylist1.get(i) + "\n";
+            }
+        }
+        else{
+            result = "还没有上下线用户";
         }
         return result;
     }

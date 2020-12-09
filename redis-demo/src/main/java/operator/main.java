@@ -44,27 +44,35 @@ public class main {
         actions += "<6> ";
         actions += actionMap.get("showFreq").getName() + "\n";
         actions += "<7> ";
-        actions += actionMap.get("add_str").getName() + "\n";
+        actions += actionMap.get("showFreqIn").getName() + "\n";
         actions += "<8> ";
-        actions += actionMap.get("delete_str").getName() + "\n";
+        actions += actionMap.get("showFreqOut").getName() + "\n";
         actions += "<9> ";
-        actions += actionMap.get("show_str").getName() + "\n";
+        actions += actionMap.get("showFreqInOut").getName() + "\n";
         actions += "<10> ";
-        actions += actionMap.get("add_list").getName() + "\n";
+        actions += actionMap.get("add_str").getName() + "\n";
         actions += "<11> ";
-        actions += actionMap.get("show_list").getName() + "\n";
+        actions += actionMap.get("delete_str").getName() + "\n";
         actions += "<12> ";
-        actions += actionMap.get("add_set").getName() + "\n";
+        actions += actionMap.get("show_str").getName() + "\n";
         actions += "<13> ";
-        actions += actionMap.get("show_set").getName() + "\n";
+        actions += actionMap.get("add_list").getName() + "\n";
         actions += "<14> ";
-        actions += actionMap.get("add_zSet").getName() + "\n";
+        actions += actionMap.get("show_list").getName() + "\n";
         actions += "<15> ";
+        actions += actionMap.get("add_set").getName() + "\n";
+        actions += "<16> ";
+        actions += actionMap.get("show_set").getName() + "\n";
+        actions += "<17> ";
+        actions += actionMap.get("add_zSet").getName() + "\n";
+        actions += "<18> ";
         actions += actionMap.get("show_zSet").getName() + "\n";
-        actions += "\n";
+
         return actions;
     }
     public static void action_operator(){  //对应action的操作
+        System.out.print(getActions());
+        System.out.println("<0> 返回:");
         System.out.print("选择action编号:");
         Scanner sc=new Scanner(System.in);
         String operator = sc.nextLine();
@@ -114,56 +122,74 @@ public class main {
                     break;
                 }
                 case 7:{
+                    String freq_time = counterMap.get("showFreq").getFields();
+                    freq_operators.setData1(counterMap.get(actionMap.get("showFreqIn").getSave_counterName()),jedis,freq_time);
+                    System.out.println(freq_operators.showIn());
+                    break;
+                }
+                case 8:{
+                    String freq_time = counterMap.get("showFreq").getFields();
+                    freq_operators.setData1(counterMap.get(actionMap.get("showFreqOut").getSave_counterName()),jedis,freq_time);
+                    System.out.println(freq_operators.showOut());
+                    break;
+                }
+                case 9:{
+                    String freq_time = counterMap.get("showFreq").getFields();
+                    freq_operators.setData1(counterMap.get(actionMap.get("showFreqInOut").getRetrieve_counterName()),jedis,freq_time);
+                    System.out.println(freq_operators.showInOut());
+                    break;
+                }
+                case 10:{
                     string_operators.setData(counterMap.get(actionMap.get("add_str").getSave_counterName()),jedis);
                     System.out.println(string_operators.add());
                     num_operators.setData(counterMap.get(actionMap.get("add_str").getRetrieve_counterName()),jedis);
                     System.out.println(string_operators.show());
                     break;
                 }
-                case 8:{
+                case 11:{
                     string_operators.setData(counterMap.get(actionMap.get("delete_str").getSave_counterName()),jedis);
                     System.out.println(string_operators.delete());
                     num_operators.setData(counterMap.get(actionMap.get("delete_str").getRetrieve_counterName()),jedis);
                     System.out.println(string_operators.show());
                     break;
                 }
-                case 9:{
+                case 12:{
                     string_operators.setData(counterMap.get(actionMap.get("show_str").getSave_counterName()),jedis);
                     System.out.println(string_operators.show());
                     break;
                 }
-                case 10:{
+                case 13:{
                     list_operators.setData(counterMap.get(actionMap.get("add_list").getSave_counterName()),jedis);
                     System.out.println(list_operators.add());
                     list_operators.setData(counterMap.get(actionMap.get("add_list").getRetrieve_counterName()),jedis);
                     System.out.println(list_operators.show());
                     break;
                 }
-                case 11:{
+                case 14:{
                     list_operators.setData(counterMap.get(actionMap.get("show_list").getSave_counterName()),jedis);
                     System.out.println(list_operators.show());
                     break;
                 }
-                case 12:{
+                case 15:{
                     set_operators.setData(counterMap.get(actionMap.get("add_set").getSave_counterName()),jedis);
                     System.out.println(set_operators.add());
                     set_operators.setData(counterMap.get(actionMap.get("add_set").getRetrieve_counterName()),jedis);
                     System.out.println(set_operators.show());
                     break;
                 }
-                case 13:{
+                case 16:{
                     set_operators.setData(counterMap.get(actionMap.get("show_set").getSave_counterName()),jedis);
                     System.out.println(set_operators.show());
                     break;
                 }
-                case 14:{
+                case 17:{
                     zset_operators.setData(counterMap.get(actionMap.get("add_zSet").getSave_counterName()),jedis);
                     System.out.println(zset_operators.add());
                     zset_operators.setData(counterMap.get(actionMap.get("add_zSet").getRetrieve_counterName()),jedis);
                     System.out.println(zset_operators.show());
                     break;
                 }
-                case 15:{
+                case 18:{
                     zset_operators.setData(counterMap.get(actionMap.get("show_zSet").getSave_counterName()),jedis);
                     System.out.println(zset_operators.show());
                     break;
@@ -199,6 +225,7 @@ public class main {
             switch (choice) {
                 case "1": {
                     System.out.print(getActions());
+                    System.out.println();
                     break;
                 }
                 case "2": {
